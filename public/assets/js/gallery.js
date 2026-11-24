@@ -25,4 +25,25 @@
 
   window.addEventListener('resize', layout);
   layout();
+
+  // Reveal each image once it reaches the viewport while scrolling.
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('reveal-pending');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    items.forEach(function (item) {
+      // Keep the initial viewport immediately visible, including on reload.
+      if (item.getBoundingClientRect().top >= window.innerHeight) {
+        item.classList.add('reveal-pending');
+        observer.observe(item);
+      }
+    });
+  }
 })();

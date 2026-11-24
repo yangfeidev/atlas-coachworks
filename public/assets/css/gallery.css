@@ -1,0 +1,16 @@
+/* Images gently fade in as they enter the viewport. */
+.gallery-page .gallery-item {
+  transition: opacity 800ms ease;
+}
+.gallery-page .gallery-item.reveal-pending {
+  opacity: 0;
+}
+.gallery-page .gallery-item.reveal-pending:focus-visible {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-page .gallery-item {
+    transition: none;
+    opacity: 1;
+  }
+}
