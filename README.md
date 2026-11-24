@@ -12,7 +12,8 @@
 
 ```
 public/                 ← Cloudflare Pages 只发布这个目录
-  index.html            页面结构与内容
+  index.html            英文页面结构与内容
+  zh.html               中文页面结构与内容
   assets/css/style.css  页面样式与响应式布局
   assets/js/main.js     导航、动画、FAQ 和表单交互
   assets/images/        7 张配图（JPEG，已压缩去水印，共约 1.7MB）
@@ -26,6 +27,8 @@ public/                 ← Cloudflare Pages 只发布这个目录
 deploy.sh               手动直传脚本（备用）
 README.md               本文件（不发布）
 ```
+
+首页导航栏可在英文和中文之间切换；修改文案时需同步维护 `index.html` 和 `zh.html`。
 
 ## 页面结构
 

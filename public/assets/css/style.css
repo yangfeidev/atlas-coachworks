@@ -527,3 +527,10 @@ ul{margin:0;padding:0;list-style:none}
 .faq-heading{font-size:clamp(28px,3.4vw,44px)}
 .faq-intro{margin-top:20px}
 
+
+/* Language selector */
+.language-switch{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:42px;padding:0 10px;border:1px solid var(--line-d);color:#fff;font-size:12px;line-height:1;transition:border-color .2s,color .2s}
+.language-switch:hover,.language-switch:focus-visible{border-color:var(--copper-l);color:var(--copper-l)}
+@media (max-width:480px){.nav-cta{gap:8px}.language-switch{min-width:40px;padding:0 8px}}
+
+.mobile-menu .mobile-language{margin-left:auto;margin-right:12px;flex:none}

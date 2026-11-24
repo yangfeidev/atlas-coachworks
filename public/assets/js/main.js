@@ -56,6 +56,6 @@
       return;
     }
     document.getElementById('formOk').classList.add('show');
-    form.querySelector('button[type=submit]').textContent = 'Inquiry sent';
+    form.querySelector('button[type=submit]').textContent = document.documentElement.lang === 'zh-CN' ? '询盘已发送' : 'Inquiry sent';
   });
 })();
