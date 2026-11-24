@@ -6,7 +6,10 @@
 - `public/zh.html`：中文页面
 - `public/assets/css/reference.css`：页面样式和响应式布局
 - `public/assets/js/studio.js`：图纸切换与移动导航
-- `public/assets/images/drawing-*.svg`：同一概念方案的示意图，非施工图
+- `public/assets/images/ga-01-layout.svg`：平面布置图（GA-01，1:50 @ A3）
+- `public/assets/images/ga-02-services.svg`：点位协调图（GA-02，含 230V/12V/水/燃气/暖风/排风点位与示意走线）
+- `public/assets/images/ga-03-elevation.svg`：室内立面图（GA-03，A-A 剖视，含标高与尺寸链）
+- 三张图纸按同一辆 6.00 × 2.30 m 房车几何绘制，尺寸、分区和点位互相对应；仍为概念图纸，非施工图
 - `public/assets/images/interior-concept-v3.png`：AI 生成的内饰氛围效果图，非真实项目
 
 本地预览：`python3 -m http.server 8080 --directory public`，访问 `http://localhost:8080/zh.html`。发布目录为 `public`。
