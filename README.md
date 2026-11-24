@@ -21,7 +21,7 @@ Cloudflare Pages 项目 `atlas-coachworks` 与 Git 仓库连接，推送 `main` 
 ## 画廊与需求摘要
 
 - `public/gallery-zh.html` / `public/gallery.html`：中英文设计画廊，支持点击放大。
-- `axonometric-concept-01.png` / `axonometric-concept-02.png`：AI 生成的房车轴测概念图，非真实项目或施工图。
+- `axonometric-concept-01.png`（布置总览）/ `axonometric-storage-concept.png`（柜体与储物细节）：AI 生成的房车轴测概念图，非真实项目或施工图。
 - 首页询盘表单通过 FormSubmit 发送到配置的邮箱；访客的姓名、邮箱和需求会由该服务处理。
 
 ## 语言切换
