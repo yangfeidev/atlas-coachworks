@@ -52,17 +52,20 @@ python3 -m http.server 8080
 
 ## 部署
 
-Cloudflare Pages 直传（未接 Git CI，推 commit 不会自动上线）：
+Cloudflare Pages **Git 连接**：推送到 `main` 自动部署（生产），推其他分支生成预览部署。
+
+- 项目：`atlas-coachworks`（账号 Yangfei.dev@gmail.com）
+- Build command：留空（纯静态，无构建步骤）
+- 输出目录：`/`（仓库根目录）
+- 线上：https://atlas-coachworks.pages.dev
+
+仓库根目录的 `README.md`、`.gitignore` 等通过 `.assetsignore` 排除，不会出现在线上。
+
+手动直传（备用，Git 挂掉时用）：
 
 ```bash
 ./deploy.sh
 ```
-
-脚本会先把 `index.html` + `assets/` 拷到一个临时目录再上传，避免 `README.md`、`.gitignore` 这类文件在线上被公开访问。
-
-线上地址：https://atlas-coachworks.pages.dev
-
-若要改成「推 main 自动部署」，需要在 Cloudflare Dashboard → Pages → 该项目 → Settings → Build 里连接 GitHub 仓库（Build command 留空，输出目录 `/`），首次连接需授权 Cloudflare GitHub App。
 
 ## 待办
 
