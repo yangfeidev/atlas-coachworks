@@ -14,3 +14,22 @@
     opacity: 1;
   }
 }
+
+/* Keep the zoom subtle and inside each image's existing frame. */
+.gallery-page .gallery-item img {
+  transition: transform 450ms ease;
+}
+@media (hover: hover) {
+  .gallery-page .gallery-item:hover img {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-page .gallery-item img {
+    transition: none;
+  }
+  .gallery-page .gallery-item:hover img {
+    transform: none;
+  }
+}
