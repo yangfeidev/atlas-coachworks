@@ -33,3 +33,38 @@
     transform: none;
   }
 }
+
+/* Match the reference's white loading screen and gentle page fade-in. */
+@media (prefers-reduced-motion: no-preference) {
+  .gallery-page::before,
+  .gallery-page::after {
+    content: '';
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  .gallery-page::before {
+    inset: 0;
+    background: #fff;
+    animation: gallery-entry-screen 2s ease both;
+  }
+  .gallery-page::after {
+    top: 50%;
+    left: calc(50% - 10px);
+    width: 20px;
+    height: 2px;
+    background: #000;
+    transform-origin: center;
+    animation: gallery-entry-bar 1.5s ease-in-out both;
+  }
+  @keyframes gallery-entry-screen {
+    0%, 75% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+  }
+  @keyframes gallery-entry-bar {
+    0% { transform: scaleX(0); opacity: 1; }
+    40% { transform: scaleX(1); opacity: 1; }
+    75% { transform: scaleX(.25); opacity: 1; }
+    100% { transform: scaleX(0); opacity: 0; visibility: hidden; }
+  }
+}
