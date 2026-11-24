@@ -22,7 +22,7 @@
 @media (hover: hover) {
   .gallery-page .gallery-item:hover img {
     opacity: 1;
-    transform: scale(1.04);
+    transform: scale(1.10);
   }
 }
 @media (prefers-reduced-motion: reduce) {
