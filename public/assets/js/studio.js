@@ -12,9 +12,19 @@
 (function(){
   var dialog=document.getElementById('galleryDialog');
   if(dialog){document.querySelectorAll('.gallery-item').forEach(function(item){item.addEventListener('click',function(){var img=dialog.querySelector('img');img.src=item.dataset.image;img.alt=item.dataset.caption;dialog.querySelector('p').textContent=item.dataset.caption;dialog.showModal();});});dialog.querySelector('.dialog-close').addEventListener('click',function(){dialog.close();});dialog.addEventListener('click',function(e){if(e.target===dialog)dialog.close();});}
-  var form=document.getElementById('briefForm');if(!form)return;
-  var output=document.getElementById('briefOutput'), result=form.querySelector('.brief-result'),status=document.getElementById('briefStatus'),zh=document.documentElement.lang==='zh-CN';
-  form.addEventListener('submit',function(e){e.preventDefault();var data=new FormData(form),features=data.getAll('feature');output.value=(zh?'房车设计需求摘要':'RV design brief')+'\n\n'+(zh?'车型 / 底盘：':'Vehicle / chassis: ')+(data.get('vehicle')||'—')+'\n'+(zh?'旅行人数：':'Travellers: ')+data.get('people')+'\n'+(zh?'设计需求：':'Service: ')+data.get('service')+'\n'+(zh?'功能需求：':'Features: ')+(features.join('、')||'—')+'\n'+(zh?'其他想法：':'Other ideas: ')+(data.get('notes')||'—');result.hidden=false;status.textContent='';});
-  document.getElementById('copyBrief').addEventListener('click',async function(){try{await navigator.clipboard.writeText(output.value);status.textContent=zh?'已复制到剪贴板。':'Copied to clipboard.';}catch(e){output.select();status.textContent=zh?'请选择并复制上面的内容。':'Select and copy the text above.';}});
-  document.getElementById('downloadBrief').addEventListener('click',function(){var a=document.createElement('a'),url=URL.createObjectURL(new Blob([output.value],{type:'text/plain;charset=utf-8'}));a.href=url;a.download='rv-design-brief.txt';a.click();setTimeout(function(){URL.revokeObjectURL(url);},1000);});
+  var form=document.getElementById('inquiryForm');if(!form)return;
+  var status=document.getElementById('inquiryStatus'),zh=document.documentElement.lang==='zh-CN',button=form.querySelector('button[type="submit"]');
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();if(!form.reportValidity())return;
+    var data=new FormData(form),features=data.getAll('feature');
+    var payload={name:data.get('name').trim(),email:data.get('email').trim(),vehicle:data.get('vehicle').trim(),people:data.get('people'),service:data.get('service'),features:features.join(', '),message:data.get('message').trim(),_honey:data.get('_honey'),_subject:'Atlas Coachworks — New inquiry'};
+    button.disabled=true;status.textContent=zh?'正在提交，请稍候…':'Sending your inquiry…';
+    try{
+      var response=await fetch('https://formsubmit.co/ajax/yangfei.dev@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+      var result=await response.json();
+      if(!response.ok || !(result.success===true || result.success==='true'))throw new Error('Submission rejected');
+      status.textContent=zh?'咨询已提交，感谢您的留言。':'Your inquiry has been submitted. Thank you.';form.reset();
+    }catch(error){status.textContent=zh?'提交未完成，请稍后重试，或直接发送邮件至 yangfei.dev@gmail.com。':'Your inquiry could not be submitted. Please try again or email yangfei.dev@gmail.com.';}
+    finally{button.disabled=false;}
+  });
 })();

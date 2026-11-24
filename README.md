@@ -13,10 +13,10 @@
 
 Cloudflare Pages 项目 `atlas-coachworks` 与 Git 仓库连接，推送 `main` 自动发布到 https://atlas-coachworks.pages.dev。`deploy.sh` 可作为直接上传的备用方式。
 
-正式商用前需提供真实品牌、联系方式、授权使用的实际项目图片与图纸；按实际服务范围校验文案。当前页面没有接收询盘的后端或联系方式。
+正式商用前需提供真实品牌、联系方式、授权使用的实际项目图片与图纸；按实际服务范围校验文案。网站询盘由 FormSubmit 处理并转发至配置的邮箱。
 
 ## 画廊与需求摘要
 
 - `public/gallery-zh.html` / `public/gallery.html`：中英文设计画廊，支持点击放大。
 - `axonometric-concept-01.png` / `axonometric-concept-02.png`：AI 生成的房车轴测概念图，非真实项目或施工图。
-- 首页需求摘要在浏览器本地生成，可复制或下载；没有后端，也不会向网站所有者发送信息。
+- 首页询盘表单通过 FormSubmit 发送到配置的邮箱；访客的姓名、邮箱和需求会由该服务处理。
