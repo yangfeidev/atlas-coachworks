@@ -41,3 +41,8 @@
 .faq-list details p{max-width:620px;margin:0 30px 24px 0;color:#626262;font-size:15px;line-height:1.8}
 .gallery-page .gallery-heading p{max-width:780px;line-height:1.6}
 @media(max-width:700px){.concept-story,.faq-layout{grid-template-columns:1fr;gap:25px}.concept-story{margin-top:35px;padding-top:30px}.faq-list summary{font-size:16px}.faq-list{margin-top:12px}}
+
+/* Keep button icons aligned and prevent SVGs from stretching a control. */
+.pill,.brief-form button{gap:.45em}
+.brief-form button{display:inline-flex;align-items:center;justify-content:center;line-height:1.5}
+.arrow-icon,.menu-icon{flex:0 0 auto}
