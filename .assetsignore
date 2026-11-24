@@ -1,8 +1,0 @@
-# Cloudflare Pages 上传排除项（语法同 .gitignore）
-# 直传时这些文件不会出现在公开站点上
-.git/
-.github/
-.DS_Store
-.wrangler/
-node_modules/
-README.md

@@ -11,16 +11,18 @@
 ## 目录
 
 ```
-index.html          单页全部结构 + 样式 + 脚本
-assets/images/      7 张配图（JPEG，已压缩去水印，共约 1.7MB）
-  hero.jpg          首屏：峡湾公路旁的铝制拖挂房车
-  studio.jpg        设计工作室：油泥模型 + CAD
-  factory.jpg       产线：拖挂壳体与铝骨架
-  interior.jpg      内饰：橡木 + 亚麻
-  craft.jpg         铆接特写
-  port.jpg          集装箱码头
-  heritage.jpg      品牌沿革老照片
-.assetsignore       Cloudflare Pages 直传排除项
+public/                 ← Cloudflare Pages 只发布这个目录
+  index.html            单页全部结构 + 样式 + 脚本
+  assets/images/        7 张配图（JPEG，已压缩去水印，共约 1.7MB）
+    hero.jpg            首屏：峡湾公路旁的铝制拖挂房车
+    studio.jpg          设计工作室：油泥模型 + CAD
+    factory.jpg         产线：拖挂壳体与铝骨架
+    interior.jpg        内饰：橡木 + 亚麻
+    craft.jpg           铆接特写
+    port.jpg            集装箱码头
+    heritage.jpg        品牌沿革老照片
+deploy.sh               手动直传脚本（备用）
+README.md               本文件（不发布）
 ```
 
 ## 页面结构
@@ -56,10 +58,11 @@ Cloudflare Pages **Git 连接**：推送到 `main` 自动部署（生产），�
 
 - 项目：`atlas-coachworks`（账号 Yangfei.dev@gmail.com）
 - Build command：留空（纯静态，无构建步骤）
-- 输出目录：`/`（仓库根目录）
+- 输出目录：`public`（仓库根只放文档和脚本，不参与发布）
 - 线上：https://atlas-coachworks.pages.dev
 
-仓库根目录的 `README.md`、`.gitignore` 等通过 `.assetsignore` 排除，不会出现在线上。
+> 为什么用 `public/` 而不是 `.assetsignore`：实测 Pages 的 Git 构建和 `pages deploy` 都不吃 `.assetsignore`，
+> README.md、deploy.sh 会直接变成可访问的静态文件。把发布内容收进独立目录、构建输出指向它，才真的隔离。
 
 手动直传（备用，Git 挂掉时用）：
 
