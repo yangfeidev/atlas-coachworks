@@ -17,3 +17,27 @@
 @media(max-width:1024px){.gallery-page .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:767px){.gallery-page .gallery-grid{grid-template-columns:1fr}.gallery-page .gallery-main{padding:60px 0 80px}.gallery-page .gallery-main .gallery-heading{margin-bottom:60px}}
 .honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden}.brief-form button:disabled{opacity:.55;cursor:wait}.inquiry-status{margin-top:16px;line-height:1.6;font-size:14px;min-height:1.6em}
+
+/* Consistent icons across mobile browsers and system fonts. */
+.arrow-icon{display:inline-block;width:1em;height:1em;vertical-align:-.12em;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter;flex:none}
+.menu-toggle{color:var(--ink);padding:8px;cursor:pointer;-webkit-appearance:none;appearance:none}
+.menu-icon{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square}
+
+/* Design study and answers that help visitors evaluate a project. */
+.concept-story{display:grid;grid-template-columns:1fr 1fr;gap:10%;margin-top:55px;padding:42px 0 0;border-top:1px solid var(--line)}
+.concept-story h3{font-size:clamp(28px,3vw,42px);line-height:1.2;margin-top:18px}
+.concept-story>div:last-child p{max-width:600px;font-size:17px;line-height:1.8;color:#4e4e4e}
+.concept-story span{display:block;margin-top:20px;color:#777;font-size:12px}
+.faq{background:#f7f7f7}
+.faq-layout{display:grid;grid-template-columns:1fr 1fr;gap:10%}
+.faq h2{margin-top:20px}
+.faq-intro{max-width:420px;margin-top:24px;color:#666;line-height:1.8}
+.faq-list{border-top:1px solid #d7d7d7}
+.faq-list details{border-bottom:1px solid #d7d7d7}
+.faq-list summary{position:relative;cursor:pointer;list-style:none;padding:23px 38px 23px 0;font-size:18px;line-height:1.5}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:after{content:'+';position:absolute;right:4px;top:19px;font-size:25px;font-weight:300}
+.faq-list details[open] summary:after{content:'−'}
+.faq-list details p{max-width:620px;margin:0 30px 24px 0;color:#626262;font-size:15px;line-height:1.8}
+.gallery-page .gallery-heading p{max-width:780px;line-height:1.6}
+@media(max-width:700px){.concept-story,.faq-layout{grid-template-columns:1fr;gap:25px}.concept-story{margin-top:35px;padding-top:30px}.faq-list summary{font-size:16px}.faq-list{margin-top:12px}}
