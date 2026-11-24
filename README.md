@@ -20,3 +20,7 @@ Cloudflare Pages 项目 `atlas-coachworks` 与 Git 仓库连接，推送 `main` 
 - `public/gallery-zh.html` / `public/gallery.html`：中英文设计画廊，支持点击放大。
 - `axonometric-concept-01.png` / `axonometric-concept-02.png`：AI 生成的房车轴测概念图，非真实项目或施工图。
 - 首页询盘表单通过 FormSubmit 发送到配置的邮箱；访客的姓名、邮箱和需求会由该服务处理。
+
+## 语言切换
+
+页面左下角可选择十种语言，以英文页面为原文，其余九种译文预置在 `public/assets/i18n/` 中，访客浏览时无需访问翻译服务。语言选择会在首页和画廊间保留；旧的中文链接会跳转到对应的中文页面。修改英文页面文案后，应同步更新各语言 JSON；现有译文由机器生成，正式使用前建议校对。
