@@ -6,13 +6,15 @@
 
 ## 技术栈
 
-单文件原生 HTML / CSS / JS，零构建依赖，无 npm 包。字体走 Google Fonts CDN（Archivo / Inter / IBM Plex Mono）。
+原生 HTML / CSS / JavaScript，按文件拆分，零构建依赖，无 npm 包。字体走 Google Fonts CDN（Archivo / Inter / IBM Plex Mono）。
 
 ## 目录
 
 ```
 public/                 ← Cloudflare Pages 只发布这个目录
-  index.html            单页全部结构 + 样式 + 脚本
+  index.html            页面结构与内容
+  assets/css/style.css  页面样式与响应式布局
+  assets/js/main.js     导航、动画、FAQ 和表单交互
   assets/images/        7 张配图（JPEG，已压缩去水印，共约 1.7MB）
     hero.jpg            首屏：峡湾公路旁的铝制拖挂房车
     studio.jpg          设计工作室：油泥模型 + CAD
@@ -47,9 +49,9 @@ README.md               本文件（不发布）
 ## 本地预览
 
 ```bash
-open index.html
-# 或起个静态服务
-python3 -m http.server 8080
+open public/index.html
+# 或从发布目录启动静态服务，访问 http://localhost:8080
+python3 -m http.server 8080 --directory public
 ```
 
 ## 部署
