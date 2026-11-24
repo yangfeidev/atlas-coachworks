@@ -4,7 +4,7 @@
 
 - `public/index.html`：英文页面
 - `public/zh.html`：中文页面
-- `public/assets/css/studio.css`：页面样式和响应式布局
+- `public/assets/css/reference.css`：页面样式和响应式布局
 - `public/assets/js/studio.js`：图纸切换与移动导航
 - `public/assets/images/drawing-*.svg`：同一概念方案的示意图，非施工图
 - `public/assets/images/interior-concept-v3.png`：AI 生成的内饰氛围效果图，非真实项目
